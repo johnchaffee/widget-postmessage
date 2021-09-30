@@ -11,5 +11,9 @@ window.onload = function () {
       // console.log(data);
       alert("I got this message:\n" + JSON.stringify(event.data, null, 2));
     }
+    if (type === "unreadCount") {
+      // console.log(data);
+      alert("Unread count changed!:\n" + JSON.stringify(event.data, null, 2));
+    }
   });
 };

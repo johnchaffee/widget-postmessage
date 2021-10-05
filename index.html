@@ -10,31 +10,36 @@
       body {
         background-color: #eee;
       }
-
       div {
         padding: 10px;
       }
-
       iframe {
         border: solid 1px #aaa;
         margin-bottom: 10px;
-        /* visibility: hidden; */
       }
     </style>
+    <script>
+      // --- RECEIVING MESSAGEES ---
+      // // Setup event listener that logs when parent window receives message event from child iframe
+      window.addEventListener("message", (event) => {
+        const { data = {} } = event; // event.data
+        const { type = "" } = data; // data.type
+        if (type === "sendMessage" || type === "unreadCount") {
+          console.log(data);
+        }
+      });
+    </script>
   </head>
-
   <body>
     <div>
       <iframe
         id="widget1"
-        src="https://ext.us-west-2.aws.zwpreprod.io/"
+        src="https://embed.zipwhip.com/"
         width="400px"
         height="600px"
         frameborder="0"
       >
       </iframe>
     </div>
-
-    <script src="index.js"></script>
   </body>
 </html>
